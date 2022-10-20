@@ -3,10 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://gif-tik-tok.netlify.app/",
-  "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown",
-    "**/*.{ts,tsx}": "eslint --fix"
-  },
   "type": "module",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
@@ -26,13 +22,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "format": "yarn prettier --write .",
+    "lint": "yarn eslint . --ext .ts,.tsx"
   },
   "browserslist": {
     "production": [
@@ -61,7 +52,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-testing-library": "^5.8.0",
     "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1"
   }
 }
