@@ -5,7 +5,7 @@
   "homepage": "https://gif-tik-tok.netlify.app/",
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown",
-    "*.{ts,tsx}": "eslint --fix"
+    "**/*.{ts,tsx}": "eslint --fix"
   },
   "type": "module",
   "dependencies": {
