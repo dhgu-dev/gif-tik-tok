@@ -16,5 +16,16 @@
     "plugin:testing-library/react",
     "prettier"
   ],
-  "plugins": ["@typescript-eslint"]
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "react/require-default-props": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": ["function-declaration", "arrow-function"],
+        "unnamedComponents": "arrow-function"
+      }
+    ]
+  }
 }
