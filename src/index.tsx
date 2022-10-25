@@ -1,14 +1,54 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { createGlobalStyle } from 'styled-components';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-wrap: break-word;
+  }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+
+  :lang(ko) { word-break: keep-all; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  [class] {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none; // ol, ul
+    border: 0; // button, table, fieldset, input, textarea, select, iframe
+    background-color: transparent; // button, dialog, input, mark, meter, progress
+    border-collapse: collapse; // table
+    border-spacing: 0; // table
+    -webkit-appearance: none;
+    appearance: none; // button, input, textarea, select, meter, progress
+  }
+  [class]::before,
+  [class]::after { box-sizing: border-box; }
+`;
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <GlobalStyle />
     <App />
   </React.StrictMode>
 );
