@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import convert from '../utils/convertSizeToLength';
 
 type Props = {
   name: string;
@@ -20,17 +21,12 @@ const UserNameContainer = styled.div<Pick<Props, 'direction'>>`
     `}
 `;
 
-const sizeToPxConverter = (large: number, medium: number, small: number) => ({
-  large,
-  medium,
-  small,
-});
-
 const Link = styled.a<Pick<Props, 'direction' | 'size'>>`
   color: black;
   font-weight: bold;
   text-decoration: none;
-  font-size: ${({ size }) => `${sizeToPxConverter(32, 18, 16)[size]}px`};
+  font-size: ${({ size }) =>
+    convert(size)({ large: 32, medium: 18, small: 16, unit: 'px' })};
   ${({ direction }) =>
     direction === 'row' &&
     css`
@@ -42,7 +38,8 @@ const Link = styled.a<Pick<Props, 'direction' | 'size'>>`
 
 const Email = styled.span<Pick<Props, 'size'>>`
   color: rgba(22, 24, 35, 0.75);
-  font-size: ${({ size }) => `${sizeToPxConverter(18, 14, 12)[size]}px`};
+  font-size: ${({ size }) =>
+    convert(size)({ large: 18, medium: 14, small: 12, unit: 'px' })};
 `;
 
 function UserName({ name, email, href, direction, size }: Props) {

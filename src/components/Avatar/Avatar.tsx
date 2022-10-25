@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import convert from '../../utils/convertSizeToLength';
 
 interface Props {
   href: string;
@@ -11,16 +12,12 @@ const AvatarContainer = styled.div`
   position: relative;
 `;
 
-const sizeToPx = (size: 'large' | 'medium' | 'small') => {
-  if (size === 'large') return '116px';
-  if (size === 'medium') return '56px';
-  return '32px';
-};
-
 const Image = styled.img<Pick<Props, 'size'>>`
   border-radius: 50%;
-  width: ${({ size }) => sizeToPx(size)};
-  height: ${({ size }) => sizeToPx(size)};
+  width: ${({ size }) =>
+    convert(size)({ large: 116, medium: 56, small: 32, unit: 'px' })};
+  height: ${({ size }) =>
+    convert(size)({ large: 116, medium: 56, small: 32, unit: 'px' })};
 `;
 
 function Avatar({ href, src, size }: Props) {
