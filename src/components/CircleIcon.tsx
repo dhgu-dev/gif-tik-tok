@@ -21,6 +21,10 @@ const CircleIconContainer = styled.span<Pick<Props, 'size' | 'active'>>`
   font-size: ${({ size }) =>
     convert(size)({ large: 24, small: 12, unit: 'px' })};
 
+  &:hover {
+    cursor: pointer;
+  }
+
   ${({ active }) =>
     active &&
     css`

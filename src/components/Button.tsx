@@ -11,8 +11,10 @@ type Props = {
 };
 
 const CustomButton = styled.button<Omit<Props, 'onClick' | 'text'>>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 4px;
-  min-width: 100px;
   font-weight: 700;
   font-size: 16px;
   line-height: 22px;
@@ -23,18 +25,12 @@ const CustomButton = styled.button<Omit<Props, 'onClick' | 'text'>>`
     const pattern =
       /^(-?\d+(em|ex|%|px|cm|mm|in|pt|pc|ch|rem|vh|vw|vmin|vmax)|0)$/;
     const regex = new RegExp(pattern, 'i');
-    const widthCSS =
-      width && regex.test(width)
-        ? css`
-            width: ${width};
-          `
-        : '';
-    const heightCSS =
-      height && regex.test(height)
-        ? css`
-            height: ${height};
-          `
-        : '';
+    const widthCSS = css`
+      width: ${width && regex.test(width) ? width : '88px'};
+    `;
+    const heightCSS = css`
+      height: ${height && regex.test(height) ? height : '28px'};
+    `;
     return css`
       ${widthCSS}
       ${heightCSS}

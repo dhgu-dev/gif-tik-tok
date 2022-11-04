@@ -20,6 +20,10 @@
   "rules": {
     "react/require-default-props": 0,
     "react/jsx-props-no-spreading": 0,
+    "no-param-reassign": [
+      "error",
+      { "props": true, "ignorePropertyModificationsFor": ["state"] }
+    ],
     "react/function-component-definition": [
       "error",
       {

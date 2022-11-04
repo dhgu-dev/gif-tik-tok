@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createGlobalStyle } from 'styled-components';
+import { Provider } from 'react-redux';
+import { store } from './store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -32,10 +34,6 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     list-style: none; // ol, ul
-    border: 0; // button, table, fieldset, input, textarea, select, iframe
-    background-color: transparent; // button, dialog, input, mark, meter, progress
-    border-collapse: collapse; // table
-    border-spacing: 0; // table
     -webkit-appearance: none;
     appearance: none; // button, input, textarea, select, meter, progress
   }
@@ -48,8 +46,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <GlobalStyle />
-    <App />
+    <Provider store={store}>
+      <GlobalStyle />
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
